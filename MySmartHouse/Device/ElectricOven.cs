@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MySmartHouse
 {
-    class ElectricOven : HomeDevice, ITime, ITemperature
+    class ElectricOven : HomeDevice, ITime, ITemperature, ICook
     {
         public OvenMode Mode { get; set; }
         public int Time { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MySmartHouse
 {
-    class Lamp : HomeDevice, ILight
+    class Lamp : HomeDevice, ILight, ILamps
     {
         public BrightMode Bright { get; set; }
         public Lamp (string name, bool power) : base(name, power) { }

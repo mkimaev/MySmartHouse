@@ -52,11 +52,14 @@
     <Compile Include="Enums\BrightMode.cs" />
     <Compile Include="HomeDevice.cs" />
     <Compile Include="Device\Lamp.cs" />
+    <Compile Include="Interface\ICook.cs" />
+    <Compile Include="Interface\ILamps.cs" />
     <Compile Include="Interface\ITime.cs" />
     <Compile Include="Interface\ILight.cs" />
     <Compile Include="Interface\ISecure.cs" />
     <Compile Include="Interface\ITemperature.cs" />
     <Compile Include="Interface\ISound.cs" />
+    <Compile Include="Interface\ITv.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Device\Microwave.cs" />
     <Compile Include="Enums\OvenMode.cs" />

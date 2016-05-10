@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MySmartHouse
 {
-    class TV : HomeDevice, ISound, ILight, ITime
+    class TV : HomeDevice, ISound, ILight, ITime, ITv
     {
         public Channels Chanel { get; set; }
         public int Volume { get; set; }
