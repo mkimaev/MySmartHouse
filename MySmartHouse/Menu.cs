@@ -3,37 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace MySmartHouse
 {
     class Menu
     {
-        private HomeDevice[] deviceList;
+        List<HomeDevice> deviceList = new List<HomeDevice>();
         public void Show()
         {
-            deviceList = new HomeDevice[9];
-            deviceList[0] = new Videocamera("Видеокамера \"Samsung L-1\"", false);
-            deviceList[1] = new Alarm("Сигнализация \"Aligator\"", false);
-            deviceList[2] = new Microwave("Микроволновка \"LG-700\"", false);
-            deviceList[3] = new ElectricOven("Электропечь \"Calor CLR-2\"", false);
-            deviceList[4] = new Kettle("Электрочайник \"Bosh Tea\"", false);
-            deviceList[5] = new Lamp("Система освещения \"Light_H\"", false);
-            deviceList[6] = new TV("Телевизор \"Toshiba-2T\"", false);
-            deviceList[7] = new Conditioner("Кондиционер \"Mitsubishi K-4", false);
-            deviceList[8] = new Boiler("Котёл \"Warm-R-2016\"      ", false);
-
-
+            deviceList.Add(new Videocamera("Видеокамера \"Samsung L-1\"", false));
+            deviceList.Add(new Alarm("Сигнализация \"Aligator\"", false));
+            deviceList.Add(new Microwave("Микроволновка \"LG-700\"", false));
+            deviceList.Add(new ElectricOven("Электропечь \"Calor CLR-2\"", false));
+            deviceList.Add(new Kettle("Электрочайник \"Bosh Tea\"", false));
+            deviceList.Add(new Lamp("Система освещения \"Light_H\"", false));
+            deviceList.Add(new TV("Телевизор \"Toshiba-2T\"", false));
+            deviceList.Add(new Conditioner("Кондиционер \"Mitsubishi K-4", false));
+            deviceList.Add(new Boiler("Котёл \"Warm-R-2016\"      ", false));
             while (true)
             {
                 Console.Clear();
+                foreach (HomeDevice device in deviceList)
+                {
+                    device.Info();
+                }
+                Console.WriteLine("\nПрограмма-эмулятор \"SmartHouse\"\n");
                 byte listNumber = 1;
-                for (int i = 0; i < deviceList.Length; i++)
-                { deviceList[i].Info(); }
                 Console.WriteLine();
-                Console.WriteLine("Программа-эмулятор \"SmartHouse\"\n");
                 foreach (var device in deviceList)
                 {
-                    
                     Console.WriteLine(listNumber++ + " - Управление устройством " + device.Name);
                 }
                 Console.WriteLine("0 - Выход\n");
@@ -53,7 +52,6 @@ namespace MySmartHouse
                     Console.WriteLine("Неверный номер");
                     Console.ReadLine();
                 }
-
             }
         }
         public void Managment (HomeDevice device)
@@ -116,7 +114,7 @@ namespace MySmartHouse
                 {
                     case "on":
                         if (device is HomeDevice)
-                        { device.PowerOn(true);}
+                        { device.PowerOn(true); }
                         break;
                     case "off":
                         if (device is HomeDevice)
@@ -152,11 +150,17 @@ namespace MySmartHouse
                             int num = Int32.Parse(Console.ReadLine());
                             Console.Clear();
                             if (num == 1)
-                            { ((ICook)device).SetMode(OvenMode.RoastChicken); }
+                            { ((ICook)device).SetMode(OvenMode.RoastChicken);
+                                device.State = true;
+                            }
                             else if (num == 2)
-                            { ((ICook)device).SetMode(OvenMode.BakeCakes); }
+                            { ((ICook)device).SetMode(OvenMode.BakeCakes);
+                                device.State = true;
+                            }
                             else if (num == 3)
-                            { ((ICook)device).SetMode(OvenMode.Pizza); }
+                            { ((ICook)device).SetMode(OvenMode.Pizza);
+                                device.State = true;
+                            }
                             else { Console.WriteLine("ввели неверный номер"); }
                             }
                         break;
@@ -193,22 +197,22 @@ namespace MySmartHouse
                             int num = Int32.Parse(Console.ReadLine());
                             Console.Clear();
                             if (num == 1)
-                            { ((ILight)device).SetBright(BrightMode.Bright100); }
-                            else if (num == 2)
-                            { ((ILight)device).SetBright(BrightMode.Bright75); }
-                            else if (num == 3)
-                            { ((ILight)device).SetBright(BrightMode.Bright50); }
-                            else if (num == 4)
-                            { ((ILight)device).SetBright(BrightMode.Off); }
-                            else { Console.WriteLine("ввели неверный номер"); }
-                            if (((ILight)device).Bright != BrightMode.Off)
-                            {
+                            { ((ILight)device).SetBright(BrightMode.Bright100);
                                 device.State = true;
                             }
-                            else
-                            {
+                            else if (num == 2)
+                            { ((ILight)device).SetBright(BrightMode.Bright75);
+                                device.State = true;
+                            }
+                            else if (num == 3)
+                            { ((ILight)device).SetBright(BrightMode.Bright50);
+                                device.State = true;
+                            }
+                            else if (num == 4)
+                            { ((ILight)device).SetBright(BrightMode.Off);
                                 device.State = false;
                             }
+                            else { Console.WriteLine("ввели неверный номер"); }
                         }
                         break;
                         case "slbed":
@@ -218,13 +222,21 @@ namespace MySmartHouse
                             int num = Int32.Parse(Console.ReadLine());
                             Console.Clear();
                             if (num == 1)
-                            { ((ILamps)device).SetLampBedroom(BrightMode.Bright100); }
+                            { ((ILamps)device).SetLampBedroom(BrightMode.Bright100);
+                                device.State = true;
+                            }
                             else if (num == 2)
-                            { ((ILamps)device).SetLampBedroom(BrightMode.Bright75); }
+                            { ((ILamps)device).SetLampBedroom(BrightMode.Bright75);
+                                device.State = true;
+                            }
                             else if (num == 3)
-                            { ((ILamps)device).SetLampBedroom(BrightMode.Bright50); }
+                            { ((ILamps)device).SetLampBedroom(BrightMode.Bright50);
+                                device.State = true;
+                            }
                             else if (num == 4)
-                            { ((ILamps)device).SetLampBedroom(BrightMode.Off); }
+                            { ((ILamps)device).SetLampBedroom(BrightMode.Off);
+                                device.State = false;
+                            }
                             else {
                             Console.WriteLine("ввели неверный номер"); }
                         }
@@ -236,13 +248,21 @@ namespace MySmartHouse
                             int num = Int32.Parse(Console.ReadLine());
                             Console.Clear();
                             if (num == 1)
-                            { ((ILamps)device).SetLampCourtYard(BrightMode.Bright100); }
+                            { ((ILamps)device).SetLampCourtYard(BrightMode.Bright100);
+                                device.State = true;
+                            }
                             else if (num == 2)
-                            { ((ILamps)device).SetLampCourtYard(BrightMode.Bright75); }
+                            { ((ILamps)device).SetLampCourtYard(BrightMode.Bright75);
+                                device.State = true;
+                            }
                             else if (num == 3)
-                            { ((ILamps)device).SetLampCourtYard(BrightMode.Bright50); }
+                            { ((ILamps)device).SetLampCourtYard(BrightMode.Bright50);
+                                device.State = true;
+                            }
                             else if (num == 4)
-                            { ((ILamps)device).SetLampCourtYard(BrightMode.Off); }
+                            { ((ILamps)device).SetLampCourtYard(BrightMode.Off);
+                                device.State = false;
+                            }
                             else {
                                 Console.WriteLine("ввели неверный номер");
                             }
@@ -255,13 +275,21 @@ namespace MySmartHouse
                             int num = Int32.Parse(Console.ReadLine());
                             Console.Clear();
                             if (num == 1)
-                            { ((ILamps)device).SetLampBathroom(BrightMode.Bright100); }
+                            { ((ILamps)device).SetLampBathroom(BrightMode.Bright100);
+                                device.State = true;
+                            }
                             else if (num == 2)
-                            { ((ILamps)device).SetLampBathroom(BrightMode.Bright75); }
+                            { ((ILamps)device).SetLampBathroom(BrightMode.Bright75);
+                                device.State = true;
+                            }
                             else if (num == 3)
-                            { ((ILamps)device).SetLampBathroom(BrightMode.Bright50); }
+                            { ((ILamps)device).SetLampBathroom(BrightMode.Bright50);
+                                device.State = true;
+                            }
                             else if (num == 4)
-                            { ((ILamps)device).SetLampBathroom(BrightMode.Off); }
+                            { ((ILamps)device).SetLampBathroom(BrightMode.Off);
+                                device.State = false;
+                            }
                             else {
                                 Console.WriteLine("ввели неверный номер");
                             }
@@ -274,13 +302,21 @@ namespace MySmartHouse
                             int num = Int32.Parse(Console.ReadLine());
                             Console.Clear();
                             if (num == 1)
-                            { ((ILamps)device).SetLampKitchen(BrightMode.Bright100); }
+                            { ((ILamps)device).SetLampKitchen(BrightMode.Bright100);
+                                device.State = true;
+                            }
                             else if (num == 2)
-                            { ((ILamps)device).SetLampKitchen(BrightMode.Bright75); }
+                            { ((ILamps)device).SetLampKitchen(BrightMode.Bright75);
+                                device.State = true;
+                            }
                             else if (num == 3)
-                            { ((ILamps)device).SetLampKitchen(BrightMode.Bright50); }
+                            { ((ILamps)device).SetLampKitchen(BrightMode.Bright50);
+                                device.State = true;
+                            }
                             else if (num == 4)
-                            { ((ILamps)device).SetLampKitchen(BrightMode.Off); }
+                            { ((ILamps)device).SetLampKitchen(BrightMode.Off);
+                                device.State = false;
+                            }
                             else {
                                 Console.WriteLine("ввели неверный номер");
                             }
@@ -293,13 +329,21 @@ namespace MySmartHouse
                             int num = Int32.Parse(Console.ReadLine());
                             Console.Clear();
                             if (num == 1)
-                            { ((ILamps)device).SetLampCellar(BrightMode.Bright100); }
+                            { ((ILamps)device).SetLampCellar(BrightMode.Bright100);
+                                device.State = true;
+                            }
                             else if (num == 2)
-                            { ((ILamps)device).SetLampCellar(BrightMode.Bright75); }
+                            { ((ILamps)device).SetLampCellar(BrightMode.Bright75);
+                                device.State = true;
+                            }
                             else if (num == 3)
-                            { ((ILamps)device).SetLampCellar(BrightMode.Bright50); }
+                            { ((ILamps)device).SetLampCellar(BrightMode.Bright50);
+                                device.State = true;
+                            }
                             else if (num == 4)
-                            { ((ILamps)device).SetLampCellar(BrightMode.Off); }
+                            { ((ILamps)device).SetLampCellar(BrightMode.Off);
+                                device.State = false;
+                            }
                             else {
                                 Console.WriteLine("ввели неверный номер");
                             }
@@ -360,12 +404,9 @@ namespace MySmartHouse
                         break;
                     case "q":
                         return;
-
                 }
-
             }
         }
-
     }
 }
 
