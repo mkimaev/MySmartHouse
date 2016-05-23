@@ -15,13 +15,11 @@ namespace MySmartHouse
             }
             public void Active()
             {
-            Console.WriteLine("Датчики дыма, движения, открытия окон и дверей включены!\n");
             State = true;
             }
 
             public void Deactive()
             {
-            Console.WriteLine("Датчики дыма, движения, открытия окон и дверей выключены!\n");
             State = false;
             }
             

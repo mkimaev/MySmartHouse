@@ -15,13 +15,11 @@ namespace MySmartHouse
 
         public void Active()
         {
-            Console.WriteLine("Съёмка c {0} включена\n", Name); ;
             State = true;
         }
 
         public void Deactive()
         {
-            Console.WriteLine("Съёмка c {0} выключена\n", Name);
             State = false;
         }
     }

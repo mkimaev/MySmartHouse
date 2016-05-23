@@ -16,7 +16,6 @@ namespace MySmartHouse
         public void SetTimer(int time)
         {
             this.Time = time;
-            Console.WriteLine("Таймер установлен на {0} минут", Time);
         }
     }
 }

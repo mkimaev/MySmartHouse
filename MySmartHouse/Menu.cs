@@ -12,6 +12,7 @@ namespace MySmartHouse
         List<HomeDevice> deviceList = new List<HomeDevice>();
         public void Show()
         {
+
             deviceList.Add(new Videocamera("Видеокамера \"Samsung L-1\"", false));
             deviceList.Add(new Alarm("Сигнализация \"Aligator\"", false));
             deviceList.Add(new Microwave("Микроволновка \"LG-700\"", false));
@@ -24,10 +25,31 @@ namespace MySmartHouse
             while (true)
             {
                 Console.Clear();
-                foreach (HomeDevice device in deviceList)
-                {
-                    device.Info();
-                }
+                foreach (HomeDevice device1 in deviceList)
+                {           
+                    if (device1.Power == true)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write("Устр-во: {0} \tПитание: ВКЛ. ", device1.Name);
+                        Console.ResetColor();
+                    }
+                    else {
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.Write("Устр-во: {0} \tПитание: ВЫКЛ. ", device1.Name);
+                        Console.ResetColor(); }
+
+                        if (device1.State == true)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            Console.Write("\tФункционал: активирован \n\n");
+                            Console.ResetColor();
+                        }
+                        else {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.Write("\tФункционал: деактивирован \n");
+                            Console.ResetColor();
+                        }
+                  }
                 Console.WriteLine("\nПрограмма-эмулятор \"SmartHouse\"\n");
                 byte listNumber = 1;
                 Console.WriteLine();
@@ -36,7 +58,6 @@ namespace MySmartHouse
                     Console.WriteLine(listNumber++ + " - Управление устройством " + device.Name);
                 }
                 Console.WriteLine("0 - Выход\n");
-                
                 Console.Write("Введите номер: ");
                 try
                 {
@@ -59,7 +80,6 @@ namespace MySmartHouse
             Console.Clear();
             while(true)
             {
-                device.Info();
                 Console.WriteLine("\nКоманды для управления устройством " + device.Name + ":\n");
                 if (device is HomeDevice)
                 {
@@ -90,11 +110,7 @@ namespace MySmartHouse
                 }
                 if (device is ILamps)
                 {
-                    Console.WriteLine("slbed - установить режим для спальни");
-                    Console.WriteLine("slyard - установить режим на внутреннем дворе");
-                    Console.WriteLine("slbath - установить режим для ванны");
-                    Console.WriteLine("slkitchen - установить режим для кухни");
-                    Console.WriteLine("slcellar - установить режим для погреба");
+                    Console.WriteLine("choose - выбрать комнату");
                 }
                 if (device is ISound)
                 {
@@ -114,12 +130,16 @@ namespace MySmartHouse
                 {
                     case "on":
                         if (device is HomeDevice)
-                        { device.PowerOn(true); }
+                        { device.PowerOn(true);
+                            Console.WriteLine("Включено\n");
+                        }
                         break;
                     case "off":
                         if (device is HomeDevice)
                         { device.PowerOn(false);
-                          device.State = false; }
+                          device.State = false;
+                          Console.WriteLine("Выключено\n");
+                        }
                         break;
                     case "act":
                         if (device is ISecure) 
@@ -140,7 +160,9 @@ namespace MySmartHouse
                             int min = Int32.Parse(Console.ReadLine());
                             Console.Clear();
                             if (device is ITime) { ((ITime)device).SetTimer(min);
-                                device.State = true; }
+                                device.State = true;
+                                Console.WriteLine("Таймер установлен на {0} минут", ((ITime)device).Time);
+                            }
                         }
                         break;
                     case "sm":
@@ -151,14 +173,17 @@ namespace MySmartHouse
                             Console.Clear();
                             if (num == 1)
                             { ((ICook)device).SetMode(OvenMode.RoastChicken);
+                                Console.WriteLine("Установлен режим запекания птицы");
                                 device.State = true;
                             }
                             else if (num == 2)
                             { ((ICook)device).SetMode(OvenMode.BakeCakes);
+                                Console.WriteLine("Установлен режим выпечки");
                                 device.State = true;
                             }
                             else if (num == 3)
                             { ((ICook)device).SetMode(OvenMode.Pizza);
+                                Console.WriteLine("Установлен режим приготовления пиццы");
                                 device.State = true;
                             }
                             else { Console.WriteLine("ввели неверный номер"); }
@@ -173,6 +198,7 @@ namespace MySmartHouse
                             if (device is ITemperature)
                             {
                                 ((ITemperature)device).IncreaseTemp(c);
+                                Console.WriteLine("Температура увеличена до {0} градусов", ((ITemperature)device).Celcius);
                                 device.State = true;
                             }
                         }
@@ -186,6 +212,7 @@ namespace MySmartHouse
                             if (device is ITemperature)
                             {
                                 ((ITemperature)device).DecreaseTemp(c);
+                                Console.WriteLine("Температура уменьшена до {0} градусов", ((ITemperature)device).Celcius);
                                 device.State = true;
                             }
                         }
@@ -198,155 +225,85 @@ namespace MySmartHouse
                             Console.Clear();
                             if (num == 1)
                             { ((ILight)device).SetBright(BrightMode.Bright100);
+                                Console.WriteLine("Яркость ({0})", ((ILight)device).Bright);
                                 device.State = true;
                             }
                             else if (num == 2)
                             { ((ILight)device).SetBright(BrightMode.Bright75);
+                                Console.WriteLine("Яркость ({0})", ((ILight)device).Bright);
                                 device.State = true;
                             }
                             else if (num == 3)
                             { ((ILight)device).SetBright(BrightMode.Bright50);
+                                Console.WriteLine("Яркость ({0})", ((ILight)device).Bright);
                                 device.State = true;
                             }
                             else if (num == 4)
                             { ((ILight)device).SetBright(BrightMode.Off);
+                                Console.WriteLine("Яркость ({0})", ((ILight)device).Bright);
                                 device.State = false;
                             }
                             else { Console.WriteLine("ввели неверный номер"); }
                         }
                         break;
-                        case "slbed":
+                        case "choose":
                         if (device is ILamps)
                         {
-                            Console.WriteLine("Выберите режим:\n \n1 - яркость 100% \n2 - яркость 75% \n3 - яркость 50% \n4 - выкл");
+                            Console.WriteLine("Введите № комнаты: \n1 - Bathroom\n2 - CourtYard\n3 - Bedroom\n4 - Kitchen\n5 - Cellar");
                             int num = Int32.Parse(Console.ReadLine());
                             Console.Clear();
                             if (num == 1)
-                            { ((ILamps)device).SetLampBedroom(BrightMode.Bright100);
-                                device.State = true;
+                            {
+                            Console.WriteLine("Введите режим для ванны:\n \n1 - яркость 100% \n2 - яркость 75% \n3 - яркость 50% \n4 - выкл");
+                            int num1 = Int32.Parse(Console.ReadLine());
+                                if (num == 1) { ((ILamps)device).SetLampRoom(Rooms.Bathroom, BrightMode.Bright100); }
+                                else if (num == 2) { ((ILamps)device).SetLampRoom(Rooms.Bathroom, BrightMode.Bright75); }
+                                else if (num == 3) { ((ILamps)device).SetLampRoom(Rooms.Bathroom, BrightMode.Bright50); }
+                                else if (num == 4) { ((ILamps)device).SetLampRoom(Rooms.Bathroom, BrightMode.Off); }
+                                Console.WriteLine("\nРежим для ванны установен");
                             }
-                            else if (num == 2)
-                            { ((ILamps)device).SetLampBedroom(BrightMode.Bright75);
-                                device.State = true;
+                            if (num == 2)
+                            {
+                                Console.WriteLine("Введите режим для внутр.двора:\n \n1 - яркость 100% \n2 - яркость 75% \n3 - яркость 50% \n4 - выкл");
+                                int num1 = Int32.Parse(Console.ReadLine());
+                                if (num == 1) { ((ILamps)device).SetLampRoom(Rooms.CourtYard, BrightMode.Bright100); }
+                                else if (num == 2) { ((ILamps)device).SetLampRoom(Rooms.CourtYard, BrightMode.Bright75); }
+                                else if (num == 3) { ((ILamps)device).SetLampRoom(Rooms.CourtYard, BrightMode.Bright50); }
+                                else if (num == 4) { ((ILamps)device).SetLampRoom(Rooms.CourtYard, BrightMode.Off); }
+                                Console.WriteLine("\nРежим для внутр.двора установен");
                             }
-                            else if (num == 3)
-                            { ((ILamps)device).SetLampBedroom(BrightMode.Bright50);
-                                device.State = true;
+                            if (num == 3)
+                            {
+                                Console.WriteLine("Введите режим для спальни:\n \n1 - яркость 100% \n2 - яркость 75% \n3 - яркость 50% \n4 - выкл");
+                                int num1 = Int32.Parse(Console.ReadLine());
+                                if (num == 1) { ((ILamps)device).SetLampRoom(Rooms.Bedroom, BrightMode.Bright100); }
+                                else if (num == 2) { ((ILamps)device).SetLampRoom(Rooms.Bedroom, BrightMode.Bright75); }
+                                else if (num == 3) { ((ILamps)device).SetLampRoom(Rooms.Bedroom, BrightMode.Bright50); }
+                                else if (num == 4) { ((ILamps)device).SetLampRoom(Rooms.Bedroom, BrightMode.Off); }
+                                Console.WriteLine("\nРежим для спальни установен");
                             }
-                            else if (num == 4)
-                            { ((ILamps)device).SetLampBedroom(BrightMode.Off);
-                                device.State = false;
+                            if (num == 4)
+                            {
+                                Console.WriteLine("Введите режим для кухни:\n \n1 - яркость 100% \n2 - яркость 75% \n3 - яркость 50% \n4 - выкл");
+                                int num1 = Int32.Parse(Console.ReadLine());
+                                if (num == 1) { ((ILamps)device).SetLampRoom(Rooms.Kitchen, BrightMode.Bright100); }
+                                else if (num == 2) { ((ILamps)device).SetLampRoom(Rooms.Kitchen, BrightMode.Bright75); }
+                                else if (num == 3) { ((ILamps)device).SetLampRoom(Rooms.Kitchen, BrightMode.Bright50); }
+                                else if (num == 4) { ((ILamps)device).SetLampRoom(Rooms.Kitchen, BrightMode.Off); }
+                                Console.WriteLine("\nРежим для кухни установен");
                             }
-                            else {
-                            Console.WriteLine("ввели неверный номер"); }
-                        }
-                        break;
-                    case "slyard":
-                        if (device is ILamps)
-                        {
-                            Console.WriteLine("Выберите режим:\n \n1 - яркость 100% \n2 - яркость 75% \n3 - яркость 50% \n4 - выкл");
-                            int num = Int32.Parse(Console.ReadLine());
+                            if (num == 5)
+                            {
+                                Console.WriteLine("Введите режим для погреба:\n \n1 - яркость 100% \n2 - яркость 75% \n3 - яркость 50% \n4 - выкл");
+                                int num1 = Int32.Parse(Console.ReadLine());
+                                if (num == 1) { ((ILamps)device).SetLampRoom(Rooms.Cellar, BrightMode.Bright100); }
+                                else if (num == 2) { ((ILamps)device).SetLampRoom(Rooms.Cellar, BrightMode.Bright75); }
+                                else if (num == 3) { ((ILamps)device).SetLampRoom(Rooms.Cellar, BrightMode.Bright50); }
+                                else if (num == 4) { ((ILamps)device).SetLampRoom(Rooms.Cellar, BrightMode.Off); }
+                                Console.WriteLine("\nРежим для погреба установен");
+                            }
+                            Thread.Sleep(1500);
                             Console.Clear();
-                            if (num == 1)
-                            { ((ILamps)device).SetLampCourtYard(BrightMode.Bright100);
-                                device.State = true;
-                            }
-                            else if (num == 2)
-                            { ((ILamps)device).SetLampCourtYard(BrightMode.Bright75);
-                                device.State = true;
-                            }
-                            else if (num == 3)
-                            { ((ILamps)device).SetLampCourtYard(BrightMode.Bright50);
-                                device.State = true;
-                            }
-                            else if (num == 4)
-                            { ((ILamps)device).SetLampCourtYard(BrightMode.Off);
-                                device.State = false;
-                            }
-                            else {
-                                Console.WriteLine("ввели неверный номер");
-                            }
-                        }
-                        break;
-                    case "slbath":
-                        if (device is ILamps)
-                        {
-                            Console.WriteLine("Выберите режим:\n \n1 - яркость 100% \n2 - яркость 75% \n3 - яркость 50% \n4 - выкл");
-                            int num = Int32.Parse(Console.ReadLine());
-                            Console.Clear();
-                            if (num == 1)
-                            { ((ILamps)device).SetLampBathroom(BrightMode.Bright100);
-                                device.State = true;
-                            }
-                            else if (num == 2)
-                            { ((ILamps)device).SetLampBathroom(BrightMode.Bright75);
-                                device.State = true;
-                            }
-                            else if (num == 3)
-                            { ((ILamps)device).SetLampBathroom(BrightMode.Bright50);
-                                device.State = true;
-                            }
-                            else if (num == 4)
-                            { ((ILamps)device).SetLampBathroom(BrightMode.Off);
-                                device.State = false;
-                            }
-                            else {
-                                Console.WriteLine("ввели неверный номер");
-                            }
-                        }
-                        break;
-                    case "slkitchen":
-                        if (device is ILamps)
-                        {
-                            Console.WriteLine("Выберите режим:\n \n1 - яркость 100% \n2 - яркость 75% \n3 - яркость 50% \n4 - выкл");
-                            int num = Int32.Parse(Console.ReadLine());
-                            Console.Clear();
-                            if (num == 1)
-                            { ((ILamps)device).SetLampKitchen(BrightMode.Bright100);
-                                device.State = true;
-                            }
-                            else if (num == 2)
-                            { ((ILamps)device).SetLampKitchen(BrightMode.Bright75);
-                                device.State = true;
-                            }
-                            else if (num == 3)
-                            { ((ILamps)device).SetLampKitchen(BrightMode.Bright50);
-                                device.State = true;
-                            }
-                            else if (num == 4)
-                            { ((ILamps)device).SetLampKitchen(BrightMode.Off);
-                                device.State = false;
-                            }
-                            else {
-                                Console.WriteLine("ввели неверный номер");
-                            }
-                        }
-                        break;
-                    case "slcellar":
-                        if (device is ILamps)
-                        {
-                            Console.WriteLine("Выберите режим:\n \n1 - яркость 100% \n2 - яркость 75% \n3 - яркость 50% \n4 - выкл");
-                            int num = Int32.Parse(Console.ReadLine());
-                            Console.Clear();
-                            if (num == 1)
-                            { ((ILamps)device).SetLampCellar(BrightMode.Bright100);
-                                device.State = true;
-                            }
-                            else if (num == 2)
-                            { ((ILamps)device).SetLampCellar(BrightMode.Bright75);
-                                device.State = true;
-                            }
-                            else if (num == 3)
-                            { ((ILamps)device).SetLampCellar(BrightMode.Bright50);
-                                device.State = true;
-                            }
-                            else if (num == 4)
-                            { ((ILamps)device).SetLampCellar(BrightMode.Off);
-                                device.State = false;
-                            }
-                            else {
-                                Console.WriteLine("ввели неверный номер");
-                            }
                         }
                         break;
                     case "sv":
@@ -358,6 +315,7 @@ namespace MySmartHouse
                             if (device is ISound)
                             {
                                 ((ISound)device).SetVolume(c);
+                                Console.WriteLine("Громкость ({0})", ((ISound)device).Volume);
                                 device.State = true;
                             }
                             else { Console.WriteLine("неверный формат"); }
@@ -371,18 +329,22 @@ namespace MySmartHouse
                             Console.Clear();
                             if (num == 1)
                             { ((ITv)device).SetChannel(Channels.Inter);
+                                Console.WriteLine("Транслируется ТВ канал: {0}", ((ITv)device).Chanel);
                                 device.State = true;
                             }
                             else if (num == 2)
                             { ((ITv)device).SetChannel(Channels.ICTV);
+                                Console.WriteLine("Транслируется ТВ канал: {0}", ((ITv)device).Chanel);
                                 device.State = true;
                             }
                             else if (num == 3)
                             { ((ITv)device).SetChannel(Channels.Discovery_Channel);
+                                Console.WriteLine("Транслируется ТВ канал: {0}", ((ITv)device).Chanel);
                                 device.State = true;
                             }
                             else if (num == 4)
                             { ((ITv)device).SetChannel(Channels.Animal_Planet);
+                                Console.WriteLine("Транслируется ТВ канал: {0}", ((ITv)device).Chanel);
                                 device.State = true;
                             }
                             else {
@@ -394,12 +356,14 @@ namespace MySmartHouse
                         if (device is ITv)
                         {
                          ((ITv)device).NextChannel();
+                          Console.WriteLine("Вкючён следующий канал");
                         }
                         break;
                     case "pre":
                         if (device is ITv)
                         {
                             ((ITv)device).PreChannel();
+                            Console.WriteLine("Вкючён предыдущий канал");
                         }
                         break;
                     case "q":

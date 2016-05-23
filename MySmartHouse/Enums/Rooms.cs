@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace MySmartHouse
 {
-    interface ILamps
+    enum Rooms
     {
-        void SetLampRoom(Rooms room, BrightMode mod);
+        Bathroom,
+        CourtYard,
+        Bedroom,
+        Kitchen,
+        Cellar
     }
 }

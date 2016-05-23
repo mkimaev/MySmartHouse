@@ -3,7 +3,7 @@
   <Class Name="MySmartHouse.HomeDevice">
     <Position X="7" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAABEAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAABAAAAAA=</HashCode>
       <FileName>HomeDevice.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -35,7 +35,7 @@
     <Position X="7.5" Y="6.25" Width="1.5" />
     <InheritanceLine Type="MySmartHouse.HomeDevice" ManuallyRouted="true">
       <Path>
-        <Point X="7.75" Y="4.77" />
+        <Point X="7.75" Y="4.606" />
         <Point X="7.734" Y="4.891" />
         <Point X="7.734" Y="5.135" />
         <Point X="8.25" Y="5.135" />
@@ -59,7 +59,7 @@
   <Class Name="MySmartHouse.Lamp">
     <Position X="11" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAAAIAAAAEAggAAAAABAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAAIAAgAAAAAAA=</HashCode>
       <FileName>Device\Lamp.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -141,7 +141,7 @@
   <Interface Name="MySmartHouse.ILamps">
     <Position X="8.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAAAAAAAAEAggAAAAABAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
       <FileName>Interface\ILamps.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -153,7 +153,7 @@
     </TypeIdentifier>
   </Interface>
   <Enum Name="MySmartHouse.OvenMode" Collapsed="true">
-    <Position X="15" Y="0.5" Width="1.5" />
+    <Position X="15" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAIA=</HashCode>
       <FileName>Enums\OvenMode.cs</FileName>
@@ -171,6 +171,13 @@
     <TypeIdentifier>
       <HashCode>AQAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBA=</HashCode>
       <FileName>Enums\BrightMode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MySmartHouse.Rooms" Collapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAggAIAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\Rooms.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Tahoma" Size="8.25" />
