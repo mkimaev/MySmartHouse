@@ -9,6 +9,6 @@ namespace MySmartHouse
     interface ILight
     {
         BrightMode Bright { get; set; }
-        void SetBright(BrightMode mod);
+        void SetBright(BrightMode mod); //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
     }
 }

@@ -10,9 +10,9 @@ namespace MySmartHouse
     {
         public Kettle(string name, bool power): base (name,power) { }
         public int Time { get; set; }
-        public void SetTimer(int time)
+        public void SetTimer(int time) //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
         {
-            this.Time = time;
+           Time = time;
         }
 
     }

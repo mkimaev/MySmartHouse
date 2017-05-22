@@ -9,6 +9,6 @@ namespace MySmartHouse
     interface ISound
     {
         int Volume { get; set; }
-        void SetVolume(int vol);
+        void SetVolume(int vol);//дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
     }
 }

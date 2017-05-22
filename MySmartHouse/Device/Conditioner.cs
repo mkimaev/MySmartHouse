@@ -12,17 +12,17 @@ namespace MySmartHouse
         public int Celcius { get; set; }
         public Conditioner(string name, bool power) : base(name, power) { }
 
-        public void SetTimer(int time)
+        public void SetTimer(int time) //дублирование кода, т.к. есть автосвойство Time, которое выполняет ту же функцию
         {
-            this.Time = time;
+            Time = time;
         }
-        public void IncreaseTemp(int c)
+        public void IncreaseTemp(int c) //дублирование кода, т.к. есть автосвойство Celcius, которое выполняет ту же функцию
         {
-            this.Celcius = c;
+            Celcius = c;
         }
-        public void DecreaseTemp(int c)
+        public void DecreaseTemp(int c) //дублирование кода, т.к. есть автосвойство Celcius, которое выполняет ту же функцию
         {
-            this.Celcius = c;
+            Celcius = c;
         }
 
     }

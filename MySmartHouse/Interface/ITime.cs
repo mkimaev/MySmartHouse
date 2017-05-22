@@ -9,6 +9,6 @@ namespace MySmartHouse
     {
         int Time { get; set; }
 
-        void SetTimer(int time);
+        void SetTimer(int time); //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
     }
 }

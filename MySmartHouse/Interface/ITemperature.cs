@@ -9,7 +9,7 @@ namespace MySmartHouse
     interface ITemperature
     {
         int Celcius { get; set; }
-        void IncreaseTemp(int celsius);
-        void DecreaseTemp(int celsius);
+        void IncreaseTemp(int celsius); //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
+        void DecreaseTemp(int celsius); //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
     }
 }

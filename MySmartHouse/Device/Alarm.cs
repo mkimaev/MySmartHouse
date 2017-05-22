@@ -6,22 +6,18 @@ using System.Threading.Tasks;
 
 namespace MySmartHouse
 {
-        public class Alarm : HomeDevice, ISecure
+    public class Alarm : HomeDevice, ISecure
+    {
+        public Alarm(string name, bool power) : base(name, power) {}
+        public void Active() //дублирование кода, т.к. есть автосвойство в абстрактном классе, которое выполняет ту же функцию
         {
-            public Alarm(string name, bool power) : base(name, power)
-            {
-                this.Name = name;
-                this.State = power;
-            }
-            public void Active()
-            {
-            State = true;
-            }
-
-            public void Deactive()
-            {
-            State = false;
-            }
-            
+            isFunctionalActive = true;
         }
+
+        public void Deactive() //дублирование кода, т.к. есть автосвойство в абстрактном классе, которое выполняет ту же функцию
+        {
+            isFunctionalActive = false;
+        }
+
+    }
 }

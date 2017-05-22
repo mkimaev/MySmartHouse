@@ -9,16 +9,16 @@ namespace MySmartHouse
     {
         public HomeDevice(string name, bool power)
         {
-            this.Name = name;
-            this.Power = power;
+            Name = name;
+            isDeviceTurnOn = power;
         }
         public string Name { get; set; }
-        public bool Power { get; set; }
-        public bool State {get; set;}
+        public bool isDeviceTurnOn { get; set; }
+        public bool isFunctionalActive {get; set;}
 
-        public void PowerOn(bool power)
+        public void PowerOn(bool power) //дублирование кода, т.к. есть автосвойство isTurnOn, которое выполняет ту же функцию
         {
-            this.Power = power;
+            isDeviceTurnOn = power;
         }
     }
 }

@@ -7,7 +7,7 @@ namespace MySmartHouse
 {
     public interface ISecure
     {
-        void Active();
-        void Deactive();
+        void Active(); //дублирование кода, т.к. есть автосвойство у абст.класса, которое выполняет ту же функцию
+        void Deactive(); //дублирование кода, т.к. есть автосвойство у абст.класса, которое выполняет ту же функцию
     }
 }

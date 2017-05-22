@@ -13,15 +13,15 @@ namespace MySmartHouse
         public BrightMode Bright { get; set; }
         public int Time { get; set; }
         public TV (string name, bool power): base (name, power) {}
-        public void SetVolume (int vol)
+        public void SetVolume (int vol) //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
         {
             Volume = vol;
         }
-        public void SetBright(BrightMode mod)
+        public void SetBright(BrightMode mod) //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
         {
             Bright = mod;
         }
-        public void SetChannel(Channels ch)
+        public void SetChannel(Channels ch) //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
         {
             Chanel = ch;
         }
@@ -31,7 +31,7 @@ namespace MySmartHouse
         public void PreChannel()
         {
         }
-        public void SetTimer(int time)
+        public void SetTimer(int time) //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
         {
             this.Time = time;
         }

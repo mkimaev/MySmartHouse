@@ -12,7 +12,7 @@ namespace MySmartHouse
         public Rooms Room { get; set; }
         public Lamp (string name, bool power) : base(name, power) { }
 
-        public void SetBright(BrightMode mod)
+        public void SetBright(BrightMode mod) //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
         {
             Bright = mod;
         }

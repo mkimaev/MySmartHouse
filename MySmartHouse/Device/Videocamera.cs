@@ -10,17 +10,17 @@ namespace MySmartHouse
         public Videocamera(string name, bool power) : base (name, power)
         {
             this.Name = name;
-            this.Power = power;
+            this.isDeviceTurnOn = power;
         }
 
-        public void Active()
+        public void Active() //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
         {
-            State = true;
+            isFunctionalActive = true;
         }
 
-        public void Deactive()
+        public void Deactive() //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
         {
-            State = false;
+            isFunctionalActive = false;
         }
     }
 

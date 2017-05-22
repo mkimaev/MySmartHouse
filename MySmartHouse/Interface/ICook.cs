@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +8,7 @@ namespace MySmartHouse
 {
     interface ICook
     {
-        void SetMode(OvenMode mod);
+        //установка режима
+		  void SetMode(OvenMode mod);
     }
 }

@@ -11,24 +11,22 @@ namespace MySmartHouse
         public OvenMode Mode { get; set; }
         public int Time { get; set; }
         public int Celcius { get; set; }
-        public ElectricOven(string name, bool power) : base (name, power)
+        public ElectricOven(string name, bool power) : base (name, power) {}
+        public void SetTimer(int time) //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
         {
-            Name = name;
-            Power = power;
+            Time = time;
         }
-        public void SetTimer(int time)
+        public void IncreaseTemp (int c) //дублирование кода, т.к. есть автосвойство Celcius, которое выполняет ту же функцию
         {
-            this.Time = time;
+            Celcius = c;
         }
-        public void IncreaseTemp (int c)
+        public void DecreaseTemp(int c) //дублирование кода, т.к. есть автосвойство Celcius, которое выполняет ту же функцию
         {
-            this.Celcius = c;
+            Celcius = c;
         }
-        public void DecreaseTemp(int c)
-        {
-            this.Celcius = c;
-        }
-        public void SetMode(OvenMode mod)
+
+        //remake
+        public void SetMode(OvenMode mod) //дублирование кода, т.к. есть автосвойство Mode, которое выполняет ту же функцию
         {
             Mode = mod;
         }
