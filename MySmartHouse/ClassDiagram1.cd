@@ -1,180 +1,215 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
   <Class Name="MySmartHouse.HomeDevice">
-    <Position X="7" Y="2.75" Width="1.5" />
+    <Position X="9.25" Y="0.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAEAAACBAAAgAAAAAAABQAAAAAAAAAQAIAAEAACAA=</HashCode>
       <FileName>HomeDevice.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MySmartHouse.Videocamera">
-    <Position X="0.5" Y="5.25" Width="1.5" />
+    <Position X="0.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Device\Videocamera.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="MySmartHouse.Alarm">
-    <Position X="2.25" Y="5.25" Width="1.5" />
+    <Position X="2.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Device\Alarm.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="MySmartHouse.Microwave">
-    <Position X="4" Y="5.25" Width="1.5" />
+    <Position X="5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Device\Microwave.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="MySmartHouse.ElectricOven">
-    <Position X="7.5" Y="6.25" Width="1.5" />
-    <InheritanceLine Type="MySmartHouse.HomeDevice" ManuallyRouted="true">
-      <Path>
-        <Point X="7.75" Y="4.606" />
-        <Point X="7.734" Y="4.891" />
-        <Point X="7.734" Y="5.135" />
-        <Point X="8.25" Y="5.135" />
-        <Point X="8.25" Y="6.25" />
-      </Path>
-    </InheritanceLine>
+  <Class Name="MySmartHouse.ElectricOven" Collapsed="true">
+    <Position X="9.5" Y="3.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Public" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAKAAAgAAAAAAAAAAAABAAAAAAAAAAAAABQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Device\ElectricOven.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="MySmartHouse.Kettle">
-    <Position X="5.75" Y="5.25" Width="1.5" />
+    <Position X="7.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Device\Kettle.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="MySmartHouse.Lamp">
-    <Position X="11" Y="5.5" Width="1.5" />
+    <Position X="14.25" Y="3.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAAIAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
       <FileName>Device\Lamp.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="MySmartHouse.Boiler">
-    <Position X="14.5" Y="5.5" Width="1.5" />
+    <Position X="19" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAABQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Device\Boiler.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="MySmartHouse.Conditioner">
-    <Position X="12.75" Y="5.5" Width="1.5" />
+    <Position X="16.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAABQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Device\Conditioner.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="MySmartHouse.TV">
-    <Position X="9.25" Y="6.25" Width="1.5" />
+  <Class Name="MySmartHouse.TV" Collapsed="true">
+    <Position X="11.75" Y="3.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AQABAAAAAAAAACAAIAAAAAAAAAAAAACAAAIgAAAAhQA=</HashCode>
+      <HashCode>AQABAAAAAAAAACAAIAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Device\TV.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="MySmartHouse.Menu">
-    <Position X="7.75" Y="0.75" Width="1.5" />
+  <Class Name="MySmartHouse.Menu" Collapsed="true">
+    <Position X="25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAgAAAAAAAAAAEA=</HashCode>
       <FileName>Menu.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="MySmartHouse.ISecure">
-    <Position X="13.5" Y="2.75" Width="1.25" />
+  <Class Name="MySmartHouse.Brightner" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>OpportunityClasses\Brightner.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MySmartHouse.Cooker" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OpportunityClasses\Cooker.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MySmartHouse.Safer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAgAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>OpportunityClasses\Safer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MySmartHouse.Sounder" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgACAAAIAAAAAAAA=</HashCode>
+      <FileName>OpportunityClasses\Sounder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MySmartHouse.Temperaturer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAABAAAAEAAQAAAAAAAA=</HashCode>
+      <FileName>OpportunityClasses\Temperaturer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MySmartHouse.Timer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQA=</HashCode>
+      <FileName>OpportunityClasses\Timer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="MySmartHouse.ISecure" Collapsed="true">
+    <Position X="21.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>Interface\ISecure.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="MySmartHouse.ITime">
-    <Position X="12" Y="2.75" Width="1.25" />
+  <Interface Name="MySmartHouse.ITime" Collapsed="true">
+    <Position X="21.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQA=</HashCode>
       <FileName>Interface\ITime.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="MySmartHouse.ITemperature">
-    <Position X="10.5" Y="2.75" Width="1.25" />
+  <Interface Name="MySmartHouse.ITemperature" Collapsed="true">
+    <Position X="25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAABAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>Interface\ITemperature.cs</FileName>
       <NewMemberFileName>Interface\Itemperature.cs</NewMemberFileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="MySmartHouse.ISound">
-    <Position X="0.5" Y="2.75" Width="1.25" />
+  <Interface Name="MySmartHouse.ISound" Collapsed="true">
+    <Position X="23.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAIAAAAAAAA=</HashCode>
       <FileName>Interface\ISound.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="MySmartHouse.ILight">
-    <Position X="2" Y="2.75" Width="1.25" />
+  <Interface Name="MySmartHouse.IBrightness" Collapsed="true">
+    <Position X="21.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
-      <FileName>Interface\ILight.cs</FileName>
+      <FileName>Interface\IBrightness.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="MySmartHouse.ICook">
-    <Position X="5.25" Y="2.75" Width="1.5" />
+  <Interface Name="MySmartHouse.ICook" Collapsed="true">
+    <Position X="23.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interface\ICook.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="MySmartHouse.ILamps">
-    <Position X="8.75" Y="2.75" Width="1.5" />
+  <Interface Name="MySmartHouse.ILamps" Collapsed="true">
+    <Position X="25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
       <FileName>Interface\ILamps.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="MySmartHouse.ITv">
-    <Position X="3.5" Y="2.75" Width="1.5" />
+  <Interface Name="MySmartHouse.ITv" Collapsed="true">
+    <Position X="23.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQABAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Interface\ITv.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="MySmartHouse.OvenMode" Collapsed="true">
-    <Position X="15" Y="1" Width="1.5" />
+    <Position X="25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAIA=</HashCode>
       <FileName>Enums\OvenMode.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="MySmartHouse.Channels" Collapsed="true">
-    <Position X="15" Y="1.75" Width="1.5" />
+    <Position X="23.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAEAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>Enums\Channels.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="MySmartHouse.BrightMode" Collapsed="true">
-    <Position X="15" Y="3.25" Width="1.5" />
+    <Position X="21.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBA=</HashCode>
       <FileName>Enums\BrightMode.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="MySmartHouse.Rooms" Collapsed="true">
-    <Position X="15" Y="2.5" Width="1.5" />
+    <Position X="21.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAggAIAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Enums\Rooms.cs</FileName>

@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace MySmartHouse
 {
-    class Lamp : HomeDevice, ILight, ILamps
+    class Lamp : HomeDevice, ILamps
     {
-        public BrightMode Bright { get; set; }
         public Rooms Room { get; set; }
-        public Lamp (string name, bool power) : base(name, power) { }
+        public Lamp (string name, bool power) : base(name, power)
+        { BrightOpportunity = new Brightner(); }
 
-        public void SetBright(BrightMode mod) //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
-        {
-            Bright = mod;
-        }
         public void SetLampRoom(Rooms room, BrightMode mod)
         {
-            Bright = mod;
+            BrightOpportunity.Bright = mod;
             Room = Room;
         }
     }

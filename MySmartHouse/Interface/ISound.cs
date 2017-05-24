@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MySmartHouse
 {
-    interface ISound
+    public interface ISound
     {
         int Volume { get; set; }
-        void SetVolume(int vol);//дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
+        void SetVolume(int vol);
     }
 }

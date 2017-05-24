@@ -6,20 +6,15 @@ using System.Threading.Tasks;
 
 namespace MySmartHouse
 {
-    class TV : HomeDevice, ISound, ILight, ITime, ITv
+    class TV : HomeDevice, ITv
     {
         public Channels Chanel { get; set; }
-        public int Volume { get; set; }
         public BrightMode Bright { get; set; }
-        public int Time { get; set; }
-        public TV (string name, bool power): base (name, power) {}
-        public void SetVolume (int vol) //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
+        public TV (string name, bool power): base (name, power)
         {
-            Volume = vol;
-        }
-        public void SetBright(BrightMode mod) //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
-        {
-            Bright = mod;
+            TimeOpportunity = new Timer();
+            SoundOpportunity = new Sounder();
+            BrightOpportunity = new Brightner();
         }
         public void SetChannel(Channels ch) //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
         {
@@ -30,10 +25,6 @@ namespace MySmartHouse
         }
         public void PreChannel()
         {
-        }
-        public void SetTimer(int time) //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
-        {
-            this.Time = time;
         }
 
     }

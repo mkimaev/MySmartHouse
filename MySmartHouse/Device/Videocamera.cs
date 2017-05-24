@@ -5,23 +5,15 @@ using System.Text;
 
 namespace MySmartHouse
 {
-    public class Videocamera : HomeDevice, ISecure
+    public class Videocamera : HomeDevice
     {
         public Videocamera(string name, bool power) : base (name, power)
         {
-            this.Name = name;
-            this.isDeviceTurnOn = power;
+            SafeOpportunity = new Safer();
+            TimeOpportunity = new Timer();
         }
+        public void RecordOn(bool command) { }
 
-        public void Active() //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
-        {
-            isFunctionalActive = true;
-        }
-
-        public void Deactive() //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
-        {
-            isFunctionalActive = false;
-        }
     }
 
 }

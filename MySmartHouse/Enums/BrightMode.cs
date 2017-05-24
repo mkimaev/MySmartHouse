@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MySmartHouse
 {
-    enum BrightMode
+    public enum BrightMode
     {
         Bright100,
         Bright75,

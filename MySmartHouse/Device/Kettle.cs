@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace MySmartHouse
 {
-    class Kettle : HomeDevice, ITime
+    class Kettle : HomeDevice
     {
-        public Kettle(string name, bool power): base (name,power) { }
-        public int Time { get; set; }
-        public void SetTimer(int time) //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
-        {
-           Time = time;
-        }
-
+        public Kettle(string name, bool power): base (name,power)
+        { TimeOpportunity = new Timer(); }
     }
 }

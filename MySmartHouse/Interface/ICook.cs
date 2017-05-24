@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MySmartHouse
 {
-    interface ICook
+    public interface ICook
     {
         //установка режима
 		  void SetMode(OvenMode mod);

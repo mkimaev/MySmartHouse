@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace MySmartHouse
 {
-    class ElectricOven : HomeDevice
+    class GrillDevice : HomeDevice
     {
-        public ElectricOven(string name, bool power) : base (name, power)
+        public GrillDevice(string name, bool power) : base(name, power)
         {
             TemperatureOpportunity = new Temperaturer();
             TimeOpportunity = new Timer();
             CookOpportunity = new Cooker();
+            BrightOpportunity = new Brightner();
+            SafeOpportunity = new Safer();
+            SoundOpportunity = new Sounder();
         }
     }
 }

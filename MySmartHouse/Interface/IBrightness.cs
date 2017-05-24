@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MySmartHouse
 {
-    interface ILight
+    public interface IBrightness
     {
         BrightMode Bright { get; set; }
-        void SetBright(BrightMode mod); //дублирование кода, т.к. есть автосвойство, которое выполняет ту же функцию
+        void SetBright(BrightMode mod);
     }
 }

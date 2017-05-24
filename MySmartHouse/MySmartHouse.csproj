@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OpportunityClasses\Brightner.cs" />
+    <Compile Include="OpportunityClasses\Cooker.cs" />
     <Compile Include="Device\Boiler.cs" />
     <Compile Include="Device\Conditioner.cs" />
+    <Compile Include="Device\GrillDevice.cs" />
     <Compile Include="Enums\Channels.cs" />
     <Compile Include="Device\Alarm.cs" />
     <Compile Include="Device\ElectricOven.cs" />
@@ -55,7 +58,7 @@
     <Compile Include="Interface\ICook.cs" />
     <Compile Include="Interface\ILamps.cs" />
     <Compile Include="Interface\ITime.cs" />
-    <Compile Include="Interface\ILight.cs" />
+    <Compile Include="Interface\IBrightness.cs" />
     <Compile Include="Interface\ISecure.cs" />
     <Compile Include="Interface\ITemperature.cs" />
     <Compile Include="Interface\ISound.cs" />
@@ -63,6 +66,10 @@
     <Compile Include="Menu.cs" />
     <Compile Include="Device\Microwave.cs" />
     <Compile Include="Enums\OvenMode.cs" />
+    <Compile Include="OpportunityClasses\Safer.cs" />
+    <Compile Include="OpportunityClasses\Sounder.cs" />
+    <Compile Include="OpportunityClasses\Timer.cs" />
+    <Compile Include="OpportunityClasses\Temperaturer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Device\Videocamera.cs" />

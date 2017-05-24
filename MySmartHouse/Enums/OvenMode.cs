@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MySmartHouse
 {
-    enum OvenMode
+    public enum OvenMode
     {
         RoastChicken,
         BakeCakes,
